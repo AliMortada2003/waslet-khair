@@ -13,8 +13,8 @@ import {
     HomeIcon
 } from "lucide-react";
 import { useTheme } from "../context/ThemeContext";
-import Sidebar from "../components/sidebar/Sidebar";
 import Topbar from "../components/Topbar/Topbar";
+import Sidebar from "../components/sidepar/Sidebar";
 
 const AdminLayout = () => {
     const { isDark } = useTheme();

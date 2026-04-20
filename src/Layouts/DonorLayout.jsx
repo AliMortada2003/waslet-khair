@@ -9,7 +9,7 @@ import {
     LayoutDashboard,
 } from "lucide-react";
 import { useTheme } from "../context/ThemeContext";
-import Sidebar from "../components/sidebar/Sidebar";
+import Sidebar from "../components/sidepar/Sidebar";
 import Topbar from "../components/Topbar/Topbar";
 
 const donorItems = [

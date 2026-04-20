@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Outlet } from "react-router-dom";
 import Topbar from "../components/Topbar/Topbar";
-import Sidebar from "../components/sidebar/Sidebar";
+import Sidebar from "../components/sidepar/Sidebar";
 import {
     LayoutDashboard,
     Building2,
