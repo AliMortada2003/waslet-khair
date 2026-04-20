@@ -28,7 +28,7 @@ const CategorySection = () => {
             className="py-20 bg-white dark:bg-slate-950 transition-colors duration-500 overflow-hidden"
             dir="rtl"
         >
-            <div className="container mx-auto px-6">
+            <div className="container max-w-7xl mx-auto px-6">
                 <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-10">
                     <PageSectionHeader
                         icon={LayoutGrid}

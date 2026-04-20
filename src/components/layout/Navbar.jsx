@@ -48,7 +48,6 @@ const Header = () => {
     { name: "الحالات", to: "/cases", icon: <HeartHandshake size={16} /> },
     { name: "الجمعيات", to: "/charities", icon: <Building2 size={16} /> },
     { name: "أنواع المساهمات", to: "/categories", icon: <Shapes size={16} /> },
-    { name: "انضم إلينا", to: "/join", icon: <UserPlus size={16} /> },
     { name: "من نحن", to: "/about", icon: <Info size={16} /> },
     { name: "قسم التوعية", to: "/advice", icon: <Lightbulb size={16} /> },
   ];
@@ -88,13 +87,13 @@ const Header = () => {
         className="fixed top-0 right-0 left-0 w-full z-50 bg-white/80 dark:bg-slate-950/80 backdrop-blur-xl border-b border-slate-200 dark:border-white/5 py-4 transition-all"
         dir="rtl"
       >
-        <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-8xl mx-auto px-2 sm:px-4 lg:px-4">
           <div className="flex justify-between items-center h-12">
             <div className="flex-shrink-0">
               <WaslaLogo />
             </div>
 
-            <div className="hidden lg:flex items-center gap-6 bg-slate-100/50 dark:bg-white/5 px-6 py-2 rounded-full border border-slate-200/50 dark:border-white/5">
+            <div className="hidden lg:flex items-center gap-5 bg-slate-100/50 dark:bg-white/5 px-6 py-2 rounded-full border border-slate-200/50 dark:border-white/5">
               {navLinks.map((link) => (
                 <NavLink key={link.name} to={link.to} className={activeLinkStyle}>
                   {({ isActive }) => (

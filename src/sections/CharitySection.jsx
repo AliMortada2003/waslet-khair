@@ -26,7 +26,7 @@ const CharitySection = () => {
             className="py-20 bg-white dark:bg-slate-950 transition-colors duration-500"
             dir="rtl"
         >
-            <div className="container mx-auto px-6">
+            <div className="container max-w-7xl mx-auto px-6">
                 {/* Header */}
                 <PageSectionHeader
                     icon={Building2}

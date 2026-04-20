@@ -16,7 +16,7 @@ const AboutSection = () => {
       className="py-24 bg-slate-100/2 dark:bg-slate-950 transition-colors duration-500 overflow-hidden"
       dir="rtl"
     >
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container max-w-7xl mx-auto px-6 relative z-10">
 
         {/* 1. استخدام العنوان الموحد للسكشن بعد التحديث */}
         <PageSectionHeader

@@ -58,7 +58,7 @@ const CasesSection = () => {
     console.log(favoriteCaseIds)
     return (
         <section
-            className="relative py-20 bg-gradient-to-b from-white via-slate-50/70 to-white dark:from-slate-950 dark:via-slate-950 dark:to-slate-900 transition-colors duration-500 overflow-hidden"
+            className="relative py-20  bg-gradient-to-b from-white via-slate-50/70 to-white dark:from-slate-950 dark:via-slate-950 dark:to-slate-900 transition-colors duration-500 overflow-hidden"
             dir="rtl"
         >
             {/* خلفية خفيفة */}
@@ -67,7 +67,7 @@ const CasesSection = () => {
                 <div className="absolute bottom-10 left-10 w-52 h-52 bg-sky-200/20 dark:bg-sky-500/10 blur-3xl rounded-full" />
             </div>
 
-            <div className="container relative mx-auto px-6">
+            <div className="container max-w-7xl relative mx-auto px-6">
                 <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-10">
                     <PageSectionHeader
                         badgeText="ساهم معنا"
