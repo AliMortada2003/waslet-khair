@@ -1,0 +1,1705 @@
+{
+  "info": {
+    "_postman_id": "57ef5c56-b1c7-475a-b417-406324e7b8e4",
+    "name": "Waslet_Khair_Platform",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "43549573"
+  },
+  "item": [
+    {
+      "name": "Admin",
+      "item": [
+        {
+          "name": "GetAllAdmins",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/Admin",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "Admin"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "GetAllAdmins",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{base_url}}/Admin",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "Admin"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Server",
+                  "value": "Microsoft-IIS/10.0"
+                },
+                {
+                  "key": "X-Powered-By",
+                  "value": "ASP.NET"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sat, 11 Apr 2026 00:18:33 GMT"
+                }
+              ],
+              "cookie": [],
+              "body": "[\n    {\n        \"id\": 1,\n        \"imageUrl\": \"https://picsum.photos/seed/admin1/300/300\",\n        \"userId\": \"usr-admin-001\",\n        \"charityId\": 1,\n        \"charityName\": \"جمعية وصلة خير القاهرة\",\n        \"firstName\": \"Ali\",\n        \"lastName\": \"Mortada\",\n        \"email\": \"admin.cairo@wasletkheer.test\",\n        \"phoneNumber\": \"01010000002\"\n    },\n    {\n        \"id\": 2,\n        \"imageUrl\": \"https://res.cloudinary.com/dwtoyknft/image/upload/v1775790272/waslet-kheer/admin.giza%40wasletkheer.test/WhatsApp_Image_2026-04-01_at_3.36.38_PM_ekkuhj.jpg\",\n        \"userId\": \"usr-admin-002\",\n        \"charityId\": 2,\n        \"charityName\": \"جمعية وصلة خير الجيزة\",\n        \"firstName\": \"Abdo\",\n        \"lastName\": \"Erfan\",\n        \"email\": \"admin.giza@wasletkheer.test\",\n        \"phoneNumber\": \"01010000003\"\n    },\n    {\n        \"id\": 3,\n        \"imageUrl\": \"https://res.cloudinary.com/dwtoyknft/image/upload/v1775830852/waslet-kheer/abdoerfan%40gmail.com/465464552_122098117538614584_8458359408620166323_n_p41g14.jpg\",\n        \"userId\": \"6bfc4f10-8671-4461-8f5c-9d7ff52fd0d2\",\n        \"charityId\": 1,\n        \"charityName\": \"جمعية وصلة خير القاهرة\",\n        \"firstName\": \"Abdo\",\n        \"lastName\": \"Erfan\",\n        \"email\": \"abdoerfan@gmail.com\",\n        \"phoneNumber\": \"01147257849\"\n    }\n]"
+            }
+          ]
+        },
+        {
+          "name": "Get_One_Admin",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/Admin/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "Admin",
+                "1"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Get_One_Admin",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{base_url}}/Admin/1",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "Admin",
+                    "1"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Server",
+                  "value": "Microsoft-IIS/10.0"
+                },
+                {
+                  "key": "X-Powered-By",
+                  "value": "ASP.NET"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sat, 11 Apr 2026 00:20:59 GMT"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"id\": 1,\n    \"imageUrl\": \"https://picsum.photos/seed/admin1/300/300\",\n    \"userId\": \"usr-admin-001\",\n    \"charityId\": 1,\n    \"charityName\": \"جمعية وصلة خير القاهرة\",\n    \"firstName\": \"Ali\",\n    \"lastName\": \"Mortada\",\n    \"email\": \"admin.cairo@wasletkheer.test\",\n    \"phoneNumber\": \"01010000002\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Edit_One_Admin",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "FirstName",
+                  "value": "Ali",
+                  "type": "text",
+                  "uuid": "10f876ee-3520-4ed9-8177-0f1df13e84ae"
+                },
+                {
+                  "key": "LastName",
+                  "value": "Sabri",
+                  "type": "text",
+                  "uuid": "bcb19206-93d0-4941-8188-14df3d63914c"
+                },
+                {
+                  "key": "PhoneNumber",
+                  "value": "01125346313",
+                  "type": "text",
+                  "uuid": "68d56ca4-0de9-4942-aef6-90e95a65038e"
+                },
+                {
+                  "key": "Email",
+                  "value": "alimortada132003@gmail.com",
+                  "type": "text",
+                  "uuid": "9617a2e9-0045-4a99-a55a-a59d699abf62"
+                },
+                {
+                  "key": "Password",
+                  "value": "Aa#100200",
+                  "type": "text",
+                  "uuid": "9b1e9c6f-ea80-4155-a548-e606338cb739"
+                },
+                {
+                  "key": "CharityId",
+                  "value": "1",
+                  "type": "text",
+                  "uuid": "cfdf05d1-b224-4bc2-9a24-f2e2d466f63b"
+                },
+                {
+                  "key": "Image",
+                  "type": "file",
+                  "uuid": "9f6dc14a-4155-48f2-a104-10cbc944ed29",
+                  "src": "/C:/Users/al/Downloads/medical-report-16 (1).jpg"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/Admin/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "Admin",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete_One_Admin",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/Admin/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "Admin",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Case",
+      "item": [
+        {
+          "name": "Get_All_Feature_Cases",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/Case/featured",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "Case",
+                "featured"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get_One_Case_ById",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/Case/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "Case",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get_All_Cases",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/Case",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "Case"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get_All_case_By_CategoryId",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/Case/category/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "Case",
+                "category",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get_All_case_By_CharityId",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/Case/charity/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "Case",
+                "charity",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Add_New_Case",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "Title",
+                  "value": "كفالة يتيم",
+                  "type": "text",
+                  "uuid": "785d0e33-68f3-4287-83cb-ca4035e21559"
+                },
+                {
+                  "key": "Description",
+                  "value": "الححالة تحتاج الي الدواء والغزاء والمستلزمات التعليمية",
+                  "type": "text",
+                  "uuid": "bc9507c6-2344-4f57-8be3-12a43d69db52"
+                },
+                {
+                  "key": "Age",
+                  "value": "15",
+                  "type": "text",
+                  "uuid": "d0b7faa6-5d4b-49a3-8b1a-ecc90a651a82"
+                },
+                {
+                  "key": "TargetAmount",
+                  "value": "2000",
+                  "type": "text",
+                  "uuid": "2e6c2ce7-2bf3-4d05-a05e-c85ca150f693"
+                },
+                {
+                  "key": "BeneficiaryName",
+                  "value": "حمادة ايمن",
+                  "type": "text",
+                  "uuid": "e15473c0-d3e7-4832-85c2-681a93e2a040"
+                },
+                {
+                  "key": "CategoryId",
+                  "value": "1",
+                  "type": "text",
+                  "uuid": "ef6d18da-1487-4443-8117-be38bc132940"
+                },
+                {
+                  "key": "Priority",
+                  "value": "critical",
+                  "type": "text",
+                  "uuid": "f6831aa1-07e0-405b-9d8f-9027d2829ee1"
+                },
+                {
+                  "key": "Status",
+                  "value": "Active",
+                  "type": "text",
+                  "uuid": "85b171db-7090-4930-b1cf-da485b749fe6"
+                },
+                {
+                  "key": "CharityId",
+                  "value": "1",
+                  "type": "text",
+                  "uuid": "76d63806-9ed0-44b1-b937-2f5264336ce2"
+                },
+                {
+                  "key": "AdminId",
+                  "value": "1",
+                  "type": "text",
+                  "uuid": "b3a239e8-7ecf-4dba-bcaa-d4e7f636b726"
+                },
+                {
+                  "key": "IsFeatured",
+                  "value": "true",
+                  "type": "text",
+                  "uuid": "e5453343-d668-42e9-96fb-3c202913d4fc"
+                },
+                {
+                  "key": "CoverImageFile",
+                  "type": "file",
+                  "uuid": "896626c5-cde9-4a7d-add5-b19f0d431110",
+                  "value": null,
+                  "disabled": true
+                },
+                {
+                  "key": "AttachmentFiles",
+                  "type": "file",
+                  "uuid": "19714f48-a2d6-43f7-b4a8-5b0926699492",
+                  "value": null,
+                  "disabled": true
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/Case",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "Case"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Edit_Case",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "Title",
+                  "value": "كفالة يتيم",
+                  "type": "text",
+                  "uuid": "785d0e33-68f3-4287-83cb-ca4035e21559"
+                },
+                {
+                  "key": "Description",
+                  "value": "الححالة تحتاج الي الدواء والغزاء والمستلزمات التعليمية",
+                  "type": "text",
+                  "uuid": "bc9507c6-2344-4f57-8be3-12a43d69db52"
+                },
+                {
+                  "key": "Age",
+                  "value": "15",
+                  "type": "text",
+                  "uuid": "d0b7faa6-5d4b-49a3-8b1a-ecc90a651a82"
+                },
+                {
+                  "key": "TargetAmount",
+                  "value": "2000",
+                  "type": "text",
+                  "uuid": "2e6c2ce7-2bf3-4d05-a05e-c85ca150f693"
+                },
+                {
+                  "key": "BeneficiaryName",
+                  "value": "حمادة ايمن",
+                  "type": "text",
+                  "uuid": "e15473c0-d3e7-4832-85c2-681a93e2a040"
+                },
+                {
+                  "key": "CategoryId",
+                  "value": "7",
+                  "type": "text",
+                  "uuid": "ef6d18da-1487-4443-8117-be38bc132940"
+                },
+                {
+                  "key": "Priority",
+                  "value": "Urgent",
+                  "type": "text",
+                  "uuid": "f6831aa1-07e0-405b-9d8f-9027d2829ee1"
+                },
+                {
+                  "key": "Status",
+                  "value": "Active",
+                  "type": "text",
+                  "uuid": "85b171db-7090-4930-b1cf-da485b749fe6"
+                },
+                {
+                  "key": "CharityId",
+                  "value": "1",
+                  "type": "text",
+                  "uuid": "76d63806-9ed0-44b1-b937-2f5264336ce2"
+                },
+                {
+                  "key": "AdminId",
+                  "value": "1",
+                  "type": "text",
+                  "uuid": "b3a239e8-7ecf-4dba-bcaa-d4e7f636b726"
+                },
+                {
+                  "key": "IsFeatured",
+                  "value": "true",
+                  "type": "text",
+                  "uuid": "e5453343-d668-42e9-96fb-3c202913d4fc"
+                },
+                {
+                  "key": "CoverImageFile",
+                  "type": "file",
+                  "uuid": "896626c5-cde9-4a7d-add5-b19f0d431110",
+                  "src": "/C:/Users/al/Downloads/WhatsApp Image 2026-04-04 at 3.56.36 AM (1).jpeg"
+                },
+                {
+                  "key": "AttachmentFiles",
+                  "type": "file",
+                  "uuid": "19714f48-a2d6-43f7-b4a8-5b0926699492",
+                  "value": null,
+                  "disabled": true
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/Case/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "Case",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "soft-delete",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/Case/2/soft-delete",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "Case",
+                "2",
+                "soft-delete"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Attachment",
+      "item": [
+        {
+          "name": "Delete_Attachment",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/Case/attachment/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "Case",
+                "attachment",
+                "1"
+              ]
+            },
+            "description": "هنا يا جد ال attachment عندك متضاف من ضمن ال Case ممكن تفصلة , علشان كده انا لو عايز اضيف attachment كده هرجع للحاله واعملها تعديل , علشان اضيف لها , انت عامل الاضافة من الحالة فقط"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Category",
+      "item": [
+        {
+          "name": "get_All_Category",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/Category",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "Category"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Add_One_Category",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "Name",
+                  "value": "كفالة يتيم",
+                  "type": "text",
+                  "uuid": "8b3e02d6-1a07-41be-8ebe-18daf0422585"
+                },
+                {
+                  "key": "IconFile",
+                  "type": "file",
+                  "uuid": "56895ba7-85e1-4c71-bec6-b0e15648f28d",
+                  "src": "/G:/شغل/Waslet-Khair/public/images/cases/كفالة يتيم.jpg"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/Category",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "Category"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Edit_One_Category",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "Name",
+                  "value": "كفالة الايتام",
+                  "type": "text",
+                  "uuid": "8b3e02d6-1a07-41be-8ebe-18daf0422585"
+                },
+                {
+                  "key": "IconFile",
+                  "type": "file",
+                  "uuid": "56895ba7-85e1-4c71-bec6-b0e15648f28d",
+                  "src": "/G:/شغل/Waslet-Khair/public/images/cases/كفالة يتيم.jpg",
+                  "disabled": true
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/Category/7",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "Category",
+                "7"
+              ]
+            },
+            "description": "اهم حاجة تركزوا علي ال Body هتلاقوا عليه علامه خضراء كده , ده هيكون موجود فيه الداتا اللي انت محتاج تبعتها مع اي ريكويست"
+          },
+          "response": []
+        },
+        {
+          "name": "get_One_Category",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/Category/7",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "Category",
+                "7"
+              ]
+            },
+            "description": "جلب بيانات كفالة يتيم"
+          },
+          "response": []
+        },
+        {
+          "name": "Delete_One_Category",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/Category/7",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "Category",
+                "7"
+              ]
+            },
+            "description": "جلب بيانات كفالة يتيم"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Charity",
+      "item": [
+        {
+          "name": "Get_All_Charies",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/Charity",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "Charity"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Add_Charity",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "Name",
+                  "value": "جمعية الشبان المسلمين",
+                  "type": "text",
+                  "uuid": "47a78120-dc6b-4e1a-8064-18de541ca9d5"
+                },
+                {
+                  "key": "Description",
+                  "value": "منصة رائدة في مساعدة الأرامل والمطلقات وكفالة الأيتام وتوفير الرعاية الصحية",
+                  "type": "text",
+                  "uuid": "6cf6c904-dfde-4964-9422-db2d5356a1bf"
+                },
+                {
+                  "key": "Type",
+                  "value": "Charity / NGO",
+                  "type": "text",
+                  "uuid": "231dd596-e6af-425c-97c0-2773fb9abb7a"
+                },
+                {
+                  "key": "Address",
+                  "value": "محافظة سوهاج , مركز البلينا",
+                  "type": "text",
+                  "uuid": "cc0a4f18-dbf4-46fa-88ec-f27cd5444f93"
+                },
+                {
+                  "key": "PhoneNumber",
+                  "value": "01125346313",
+                  "type": "text",
+                  "uuid": "073116b3-159e-4f98-b553-b7bd1c8e8a75"
+                },
+                {
+                  "key": "Email",
+                  "value": "alshopanElmoslimen@gmail.com",
+                  "type": "text",
+                  "uuid": "34190217-efb7-47b2-ae6c-e03cf2e66346"
+                },
+                {
+                  "key": "FacebookUrl",
+                  "value": "facebookUrl",
+                  "type": "text",
+                  "uuid": "3a112350-835a-4166-bcb1-39c8292eb7d2"
+                },
+                {
+                  "key": "WebsiteUrl",
+                  "value": "websiteUrl",
+                  "type": "text",
+                  "uuid": "17b50e80-8dab-47a7-9654-0b9231774bb2"
+                },
+                {
+                  "key": "InstagramUrl",
+                  "value": "",
+                  "type": "text",
+                  "uuid": "001e0b91-0595-477d-a215-9c102e5f999f"
+                },
+                {
+                  "key": "LogoFile",
+                  "type": "file",
+                  "uuid": "0c70b5d1-3bed-46a6-b40a-b2512e1d54a7",
+                  "value": null
+                },
+                {
+                  "key": "CoverImageFile",
+                  "type": "file",
+                  "uuid": "102b6595-771d-4d66-9456-5713106cdb6f",
+                  "value": null
+                },
+                {
+                  "key": "MapFile",
+                  "type": "file",
+                  "uuid": "c1f8deb4-daab-422c-9ce1-49fdd4f577de",
+                  "value": null
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/Charity",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "Charity"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Edit_Charity",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "Name",
+                  "value": "جمعية الشبان المسلمين",
+                  "type": "text",
+                  "uuid": "47a78120-dc6b-4e1a-8064-18de541ca9d5"
+                },
+                {
+                  "key": "Description",
+                  "value": "منصة رائدة في مساعدة الأرامل والمطلقات وكفالة الأيتام وتوفير الرعاية الصحية",
+                  "type": "text",
+                  "uuid": "6cf6c904-dfde-4964-9422-db2d5356a1bf"
+                },
+                {
+                  "key": "Type",
+                  "value": "Charity / NGO",
+                  "type": "text",
+                  "uuid": "231dd596-e6af-425c-97c0-2773fb9abb7a"
+                },
+                {
+                  "key": "Address",
+                  "value": "محافظة سوهاج , مركز البلينا",
+                  "type": "text",
+                  "uuid": "cc0a4f18-dbf4-46fa-88ec-f27cd5444f93"
+                },
+                {
+                  "key": "PhoneNumber",
+                  "value": "01125346313",
+                  "type": "text",
+                  "uuid": "073116b3-159e-4f98-b553-b7bd1c8e8a75"
+                },
+                {
+                  "key": "Email",
+                  "value": "alshopanElmoslimen@gmail.com",
+                  "type": "text",
+                  "uuid": "34190217-efb7-47b2-ae6c-e03cf2e66346"
+                },
+                {
+                  "key": "FacebookUrl",
+                  "value": "facebookUrl",
+                  "type": "text",
+                  "uuid": "3a112350-835a-4166-bcb1-39c8292eb7d2"
+                },
+                {
+                  "key": "WebsiteUrl",
+                  "value": "websiteUrl",
+                  "type": "text",
+                  "uuid": "17b50e80-8dab-47a7-9654-0b9231774bb2"
+                },
+                {
+                  "key": "InstagramUrl",
+                  "value": "InstaUrl",
+                  "type": "text",
+                  "uuid": "4beedd67-141c-4480-84e6-9e3fe476a52c"
+                },
+                {
+                  "key": "LogoFile",
+                  "type": "file",
+                  "uuid": "0c70b5d1-3bed-46a6-b40a-b2512e1d54a7",
+                  "value": null
+                },
+                {
+                  "key": "CoverImageFile",
+                  "type": "file",
+                  "uuid": "102b6595-771d-4d66-9456-5713106cdb6f",
+                  "value": null
+                },
+                {
+                  "key": "MapFile",
+                  "type": "file",
+                  "uuid": "c1f8deb4-daab-422c-9ce1-49fdd4f577de",
+                  "value": null
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/Charity/5",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "Charity",
+                "5"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get_One_Charity",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/Charity/5",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "Charity",
+                "5"
+              ]
+            },
+            "description": "جلب بيانات جمعية واحدة"
+          },
+          "response": []
+        },
+        {
+          "name": "Delete_Charity",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/Charity/5",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "Charity",
+                "5"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "toggle-activation-charity",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/Charity/5/toggle-activation",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "Charity",
+                "5",
+                "toggle-activation"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Donation",
+      "item": [
+        {
+          "name": "Get_All_Donation",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/Donation",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "Donation"
+              ]
+            },
+            "description": "internal-Error-500"
+          },
+          "response": []
+        },
+        {
+          "name": "Get_All_Donation_for_Donner",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/Donation/donor/{donnerId}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "Donation",
+                "donor",
+                "{donnerId}"
+              ]
+            },
+            "description": "internal-Error-500"
+          },
+          "response": []
+        },
+        {
+          "name": "Add_Donation",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"donorId\":2,\r\n    \"caseId\":1,\r\n    \"amount\":450\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/Donation",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "Donation"
+              ]
+            },
+            "description": "internal-error-500"
+          },
+          "response": []
+        },
+        {
+          "name": "Get_All_Donation_in_one_case",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/Donation/case/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "Donation",
+                "case",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get_One_DonationDetails",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/Donation/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "Donation",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete_Donation",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/Donation/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "Donation",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Donor",
+      "item": [
+        {
+          "name": "Get_All_Donors",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/Donor",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "Donor"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get_One_Donor",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/Donor/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "Donor",
+                "1"
+              ]
+            },
+            "description": "get(id)"
+          },
+          "response": []
+        },
+        {
+          "name": "Delete_Donor",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/Donor/2",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "Donor",
+                "2"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Edit_Donor_Data",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "FirstName",
+                  "value": "ali",
+                  "type": "text",
+                  "uuid": "244cbac6-3699-4e59-b653-e8774557b755"
+                },
+                {
+                  "key": "LastName",
+                  "value": "mortada",
+                  "type": "text",
+                  "uuid": "96feb6a5-427e-4274-b466-219ce4a35b02"
+                },
+                {
+                  "key": "Email",
+                  "value": "alimortada132003@gmail.com",
+                  "type": "text",
+                  "uuid": "aaf6be47-b3ab-4d96-a889-9f69234fc7d8"
+                },
+                {
+                  "key": "Password",
+                  "value": "Aa#100200",
+                  "type": "text",
+                  "uuid": "098b9dbd-9e0f-434e-98e0-6ccfab527f43"
+                },
+                {
+                  "key": "PhoneNumber",
+                  "value": "01125346313",
+                  "type": "text",
+                  "uuid": "187d495c-b6bc-4607-bd38-89613a77a334"
+                },
+                {
+                  "key": "Image",
+                  "type": "file",
+                  "uuid": "4857029d-15c2-45cd-83fa-99a01f0d2db9",
+                  "src": "/C:/Users/al/Downloads/medical-report-16 (1).jpg"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/Donor/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "Donor",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Confirm_Donor_manualy",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/Donor/1/confirm",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "Donor",
+                "1",
+                "confirm"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "FavoriteCase",
+      "item": [
+        {
+          "name": "FavoriteCase/donor/{donorId}",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/FavoriteCase/donor/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "FavoriteCase",
+                "donor",
+                "1"
+              ]
+            },
+            "description": "internal-err-500"
+          },
+          "response": []
+        },
+        {
+          "name": "FavoriteCase",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n\"donorId\": 1,\r\n\"caseId\": 2\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/FavoriteCase",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "FavoriteCase"
+              ]
+            },
+            "description": "internal-error-500"
+          },
+          "response": []
+        },
+        {
+          "name": "Delete_FavoriteCase",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n\"donorId\": 1,\r\n\"caseId\": 2\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/FavoriteCase/donor/1/case/2",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "FavoriteCase",
+                "donor",
+                "1",
+                "case",
+                "2"
+              ]
+            },
+            "description": "internal-error-500"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Notification",
+      "item": [
+        {
+          "name": "Get_Notification_User",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "{{base_url}}/Notification/user/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "Notification",
+                "user",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get_one_Notification_Details",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/Notification/3",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "Notification",
+                "3"
+              ]
+            },
+            "description": "هتاخد Notification Id\n\ninternal-error-500"
+          },
+          "response": []
+        },
+        {
+          "name": "Delete_one_Notification",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/Notification/3",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "Notification",
+                "3"
+              ]
+            },
+            "description": "هتاخد Notification Id"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "User",
+      "item": [
+        {
+          "name": "Admin-Register",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "Image",
+                  "type": "file",
+                  "uuid": "526274f4-4bd4-46d1-b29a-c7299bbd065b",
+                  "src": "/C:/Users/al/Downloads/medical-report-16 (1).jpg"
+                },
+                {
+                  "key": "CharityId",
+                  "value": "5",
+                  "type": "text",
+                  "uuid": "715ef753-d0a0-4b75-a057-2bd1710595a7"
+                },
+                {
+                  "key": "FirstName",
+                  "value": "Abdo",
+                  "type": "text",
+                  "uuid": "83fa56e3-47e1-423b-b0db-418482c36f73"
+                },
+                {
+                  "key": "LastName",
+                  "value": "Erfan",
+                  "type": "text",
+                  "uuid": "2337e27f-9a04-4eee-9365-88b10ca7c32c"
+                },
+                {
+                  "key": "Phone",
+                  "value": "01125346313",
+                  "type": "text",
+                  "uuid": "538f0274-7a1c-4ab4-9d30-f66ad6df64ac"
+                },
+                {
+                  "key": "Email",
+                  "value": "Abdo123@gmail.com",
+                  "type": "text",
+                  "uuid": "4f95696f-d20e-4766-a3eb-7452f481958c"
+                },
+                {
+                  "key": "Password",
+                  "value": "Aa#100200",
+                  "type": "text",
+                  "uuid": "b8fb7906-42ad-414e-b5fe-cf0edadd8489"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/User/Admin-Register",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "User",
+                "Admin-Register"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "SuperAdmin-Register",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "Image",
+                  "type": "file",
+                  "uuid": "526274f4-4bd4-46d1-b29a-c7299bbd065b",
+                  "src": "/C:/Users/al/Downloads/medical-report-16 (1).jpg"
+                },
+                {
+                  "key": "FirstName",
+                  "value": "Ali",
+                  "type": "text",
+                  "uuid": "83fa56e3-47e1-423b-b0db-418482c36f73"
+                },
+                {
+                  "key": "LastName",
+                  "value": "Mortada",
+                  "type": "text",
+                  "uuid": "2337e27f-9a04-4eee-9365-88b10ca7c32c"
+                },
+                {
+                  "key": "Phone",
+                  "value": "01125346313",
+                  "type": "text",
+                  "uuid": "538f0274-7a1c-4ab4-9d30-f66ad6df64ac"
+                },
+                {
+                  "key": "Email",
+                  "value": "alisuberadmin@gmail.com",
+                  "type": "text",
+                  "uuid": "4f95696f-d20e-4766-a3eb-7452f481958c"
+                },
+                {
+                  "key": "Password",
+                  "value": "Aa#100200",
+                  "type": "text",
+                  "uuid": "b8fb7906-42ad-414e-b5fe-cf0edadd8489"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/User/SuperAdmin-Register",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "User",
+                "SuperAdmin-Register"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Donor-Register",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "Image",
+                  "type": "file",
+                  "uuid": "526274f4-4bd4-46d1-b29a-c7299bbd065b",
+                  "src": "/C:/Users/al/Downloads/medical-report-16 (1).jpg"
+                },
+                {
+                  "key": "FirstName",
+                  "value": "Ali",
+                  "type": "text",
+                  "uuid": "83fa56e3-47e1-423b-b0db-418482c36f73"
+                },
+                {
+                  "key": "LastName",
+                  "value": "Mortada",
+                  "type": "text",
+                  "uuid": "2337e27f-9a04-4eee-9365-88b10ca7c32c"
+                },
+                {
+                  "key": "Phone",
+                  "value": "01125346313",
+                  "type": "text",
+                  "uuid": "538f0274-7a1c-4ab4-9d30-f66ad6df64ac"
+                },
+                {
+                  "key": "Email",
+                  "value": "alidonor@gmail.com",
+                  "type": "text",
+                  "uuid": "4f95696f-d20e-4766-a3eb-7452f481958c"
+                },
+                {
+                  "key": "Password",
+                  "value": "Aa#100200",
+                  "type": "text",
+                  "uuid": "b8fb7906-42ad-414e-b5fe-cf0edadd8489"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/User/Donor-Register",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "User",
+                "Donor-Register"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "// {\r\n// \"email\": \"alisuberadmin@gmail.com\",\r\n// \"password\": \"Aa#100200\"\r\n// }\r\n{\r\n\"email\": \"Abdo123@gmail.com\",\r\n\"password\": \"Aa#100200\"\r\n}\r\n// {\r\n// \"email\": \"alisuberadmin@gmail.com\",\r\n// \"password\": \"Aa#100200\"\r\n// }",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/User/Login",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "User",
+                "Login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "ForgetPassword",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "\"alisuberadmin@gmail.com\" //Email",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/User/ForgetPassword",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "User",
+                "ForgetPassword"
+              ]
+            },
+            "description": "هتاخد منك الايميل بس"
+          },
+          "response": []
+        },
+        {
+          "name": "User_CheckCode",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"code\": \"string\",\r\n    \"email\": \"string\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/User/CheckCode",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "User",
+                "CheckCode"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "ResetPassword",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\": \"string\",\r\n    \"newPassword\": \"string\",\r\n    \"token\": \"string\",\r\n    \"code\": \"string\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/User/ResetPassword",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "User",
+                "ResetPassword"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": ""
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+User/Admin-Register (Image,CharityId,FirstName,LastName,Phone,Email,Password)
+User/SuperAdmin-Register (Image,FirstName,LastName,Phone,Email,Password)
+User/Donor-Register (Image,FirstName,LastName,Phone,Email,Password)
+User/Login {"email": "Abdo123@gmail.com","password": "Aa#100200"}
+User/ForgetPassword "alisuberadmin@gmail.com" //Email
+User/CheckCode{"code": "string","email": "string"}
+User/ResetPassword {"email": "string","newPassword": "string","token": "string","code": "string}

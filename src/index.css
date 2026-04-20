@@ -1,0 +1,67 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+button:hover {
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+/* --- تخصيص السكرول بار للهوية الجديدة --- */
+
+/* 1. المتصفحات (Chrome, Edge, Safari) */
+::-webkit-scrollbar {
+  width: 8px; /* تقليل العرض قليلاً ليكون أنحف وأشيك */
+}
+
+/* شكل الخلفية (المجرى) */
+::-webkit-scrollbar-track {
+  background: #f1f5f9; /* Slate-100 للمود الفاتح */
+}
+
+.dark ::-webkit-scrollbar-track {
+  background: #0b1120; /* نفس لون خلفية الدارك مود عندك */
+}
+
+/* شكل الـ Handle (الجزء المتحرك) */
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    to bottom,
+    #6366f1, /* Indigo-500 */
+    #4338ca  /* Indigo-700 */
+  ); 
+  border-radius: 20px;
+  /* إضافة border بلون الخلفية بيخلق مسافة (Padding) وهمية بتخلي شكله Pro */
+  border: 2px solid #f1f5f9; 
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  border-color: #0b1120; /* التوافق مع الدارك مود */
+}
+
+/* شكل الـ Handle لما تقف عليه (قلب للهوية الثانوية Orange) */
+::-webkit-scrollbar-thumb:hover {
+  background: #f97316; /* Orange-500 */
+}
+
+/* 2. متصفح Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #6366f1 transparent; /* Indigo */
+}
+
+/* --- تحسينات الـ Swiper و الـ Typewriter --- */
+
+.typewriter-container {
+  display: inline-block;
+  direction: rtl;
+  unicode-bidi: isolate;
+  text-align: right;
+  /* لمسة إضافية: لون الكيرسر (Cursor) لو بتستخدم واحد خليه Indigo */
+  border-left: 2px solid #6366f1; 
+}
+
+/* تخصيص الـ Selection (لما المستخدم يحدد نص في الموقع) */
+::selection {
+  background-color: rgba(99, 102, 241, 0.2); /* Indigo شفاف */
+  color: #4338ca;
+}
