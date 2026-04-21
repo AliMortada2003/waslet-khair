@@ -5,24 +5,20 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useChatBot } from "../hocks/useChatBot";
 import { useGetCases } from "../hocks/useCaseHooks";
 
-// ✅ حذفنا imports الـ categories والـ charities والـ awarenessData
+const WELCOME_MESSAGE = {
+    text: "مرحباً بك في وصلة خير، أنا وصلة مساعدك الذكي. أقدر أساعدك في اختيار الحالة المناسبة للتبرع. كيف أقدر أخدمك اليوم؟",
+    isBot: true,
+};
 
 const ChatBot = () => {
     const [isOpen, setIsOpen] = useState(false);
-    const [messages, setMessages] = useState([
-        {
-            text: "مرحباً بك في وصلة خير، أنا وصلة مساعدك الذكي. أقدر أساعدك في اختيار الحالة المناسبة للتبرع. كيف أقدر أخدمك اليوم؟",
-            isBot: true,
-        },
-    ]);
+    const [messages, setMessages] = useState([WELCOME_MESSAGE]);
     const [input, setInput] = useState("");
     const [userLocation, setUserLocation] = useState(null);
 
     const messagesEndRef = useRef(null);
 
-    // ✅ بنجيب الحالات فقط
     const { data: cases = [] } = useGetCases();
-
     const { mutate, isPending } = useChatBot();
 
     const quickQuestions = [
@@ -48,12 +44,10 @@ const ChatBot = () => {
         },
     ];
 
-    // ✅ Auto scroll
     useEffect(() => {
         messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
     }, [messages, isPending]);
 
-    // ✅ طلب الموقع مرة واحدة لما الشات يتفتح
     useEffect(() => {
         if (!isOpen || userLocation) return;
         if (!navigator.geolocation) return;
@@ -67,14 +61,13 @@ const ChatBot = () => {
             },
             () => setUserLocation(null)
         );
-    }, [isOpen]);
+    }, [isOpen, userLocation]);
 
-    // ✅ normalize الحالات فقط
     const normalizedCases = useMemo(() => {
         return (cases || []).map((item) => ({
             id: item.id,
             title: item.title || item.caseTitle || "بدون عنوان",
-            description: (item.description || "").slice(0, 80),
+            description: item.description || "",
             charityName: item.charityName || "",
             categoryName: item.categoryName || "",
             targetAmount: item.targetAmount ?? item.goalAmount ?? 0,
@@ -89,7 +82,8 @@ const ChatBot = () => {
     const handleSendMessage = (messageText) => {
         if (!messageText.trim() || isPending) return;
 
-        const currentHistory = messages; // ✅ نحفظ الـ history قبل إضافة الرسالة الجديدة
+        const currentHistory = messages;
+
         setMessages((prev) => [...prev, { text: messageText, isBot: false }]);
 
         mutate(
@@ -97,8 +91,8 @@ const ChatBot = () => {
                 message: messageText,
                 history: currentHistory,
                 contextData: {
-                    cases: normalizedCases,  // ✅ الحالات فقط
-                    userLocation,            // ✅ والموقع فقط
+                    cases: normalizedCases,
+                    userLocation,
                 },
             },
             {
@@ -133,6 +127,7 @@ const ChatBot = () => {
     const handleSend = () => {
         const currentInput = input.trim();
         if (!currentInput) return;
+
         setInput("");
         handleSendMessage(currentInput);
     };
@@ -151,7 +146,6 @@ const ChatBot = () => {
                         exit={{ opacity: 0, y: 20, scale: 0.8 }}
                         className="mb-2 w-80 md:w-96 bg-white dark:bg-slate-900 rounded-[2rem] shadow-2xl border border-slate-100 dark:border-slate-800 overflow-hidden"
                     >
-                        {/* Header */}
                         <div className="bg-gradient-to-l from-indigo-600 to-orange-500 p-5 text-white flex justify-between items-center">
                             <div className="flex items-center gap-3">
                                 <div className="p-2.5 bg-white/15 rounded-xl border border-white/10">
@@ -174,39 +168,35 @@ const ChatBot = () => {
                             </button>
                         </div>
 
-                        {/* Messages */}
                         <div className="h-52 md:h-72 overflow-y-auto p-5 space-y-4 bg-slate-50 dark:bg-slate-950 scrollbar-none">
                             {messages.map((msg, i) => (
                                 <motion.div
                                     initial={{ opacity: 0, y: 10 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     key={i}
-                                    className={`flex gap-2.5 ${
-                                        msg.isBot ? "justify-start" : "justify-end"
-                                    }`}
+                                    className={`flex gap-2.5 ${msg.isBot ? "justify-start" : "justify-end"
+                                        }`}
                                 >
                                     {msg.isBot && (
                                         <div className="w-8 h-8 rounded-full bg-indigo-100 dark:bg-indigo-500/10 flex items-center justify-center text-indigo-600 dark:text-indigo-400 shrink-0">
                                             <Bot size={16} />
                                         </div>
                                     )}
+
                                     <div
-                                        className={`max-w-[80%] p-3.5 rounded-2xl text-sm shadow-sm whitespace-pre-line ${
-                                            msg.isBot
+                                        className={`max-w-[80%] p-3.5 rounded-2xl text-sm shadow-sm whitespace-pre-line ${msg.isBot
                                                 ? "bg-white dark:bg-slate-800 text-slate-800 dark:text-white rounded-tr-none"
                                                 : "bg-gradient-to-l from-indigo-600 to-orange-500 text-white rounded-tl-none"
-                                        } ${
-                                            msg.isError
+                                            } ${msg.isError
                                                 ? "!bg-red-50 !text-red-800 border border-red-200"
                                                 : ""
-                                        }`}
+                                            }`}
                                     >
                                         {msg.text}
                                     </div>
                                 </motion.div>
                             ))}
 
-                            {/* Typing indicator */}
                             {isPending && (
                                 <div className="flex gap-2 justify-start items-center text-slate-400 text-[10px]">
                                     <div className="flex gap-1">
@@ -221,7 +211,6 @@ const ChatBot = () => {
                             <div ref={messagesEndRef} />
                         </div>
 
-                        {/* Quick Questions */}
                         <div className="px-4 py-3 grid grid-cols-2 gap-2 bg-white dark:bg-slate-900 border-t dark:border-slate-800">
                             {quickQuestions.map((q) => (
                                 <button
@@ -235,7 +224,6 @@ const ChatBot = () => {
                             ))}
                         </div>
 
-                        {/* Input */}
                         <div className="p-4 bg-white dark:bg-slate-900 flex gap-2 items-center">
                             <input
                                 type="text"
@@ -262,7 +250,6 @@ const ChatBot = () => {
                 )}
             </AnimatePresence>
 
-            {/* Toggle Button */}
             <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}

@@ -7,10 +7,9 @@ export const useChatBot = () => {
 
     return useMutation({
         mutationFn: async ({ message, history = [], contextData = {} }) => {
-            // ✅ منع الإرسال قبل مرور 15 ثانية من آخر request
             const now = Date.now();
             const timeSinceLast = now - lastRequestTime.current;
-            const minInterval = 15000; // 15 ثانية
+            const minInterval = 4000; // 4 ثواني بدل 15
 
             if (timeSinceLast < minInterval) {
                 const waitTime = Math.ceil((minInterval - timeSinceLast) / 1000);
