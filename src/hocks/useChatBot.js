@@ -1,17 +1,25 @@
 import { useMutation } from "@tanstack/react-query";
 import { chatService } from "./../services/chatService";
+import { useRef } from "react";
 
 export const useChatBot = () => {
-    return useMutation({
-        mutationFn: ({ message, history = [], contextData = {} }) =>
-            chatService.sendMessage({
-                message,
-                history,
-                contextData,
-            }),
+    const lastRequestTime = useRef(0);
 
-        onSuccess: () => {
-            // أي logic إضافي بعد النجاح
+    return useMutation({
+        mutationFn: async ({ message, history = [], contextData = {} }) => {
+            // ✅ منع الإرسال قبل مرور 15 ثانية من آخر request
+            const now = Date.now();
+            const timeSinceLast = now - lastRequestTime.current;
+            const minInterval = 15000; // 15 ثانية
+
+            if (timeSinceLast < minInterval) {
+                const waitTime = Math.ceil((minInterval - timeSinceLast) / 1000);
+                throw new Error(`انتظر ${waitTime} ثانية قبل الإرسال مرة أخرى`);
+            }
+
+            lastRequestTime.current = Date.now();
+
+            return chatService.sendMessage({ message, history, contextData });
         },
 
         onError: (error) => {

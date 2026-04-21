@@ -4,16 +4,14 @@ import { motion, AnimatePresence } from "framer-motion";
 
 import { useChatBot } from "../hocks/useChatBot";
 import { useGetCases } from "../hocks/useCaseHooks";
-import { useGetCategories } from "../hocks/useCategoriesHocks";
-import { useGetCharities } from "../hocks/useCharityHooks";
-import { awarenessArticles, awarenessFaqs, awarenessImpactStats, awarenessQuotes, awarenessVideos } from "../pages/AwarenessPage/data/awarenessData";
 
+// ✅ حذفنا imports الـ categories والـ charities والـ awarenessData
 
 const ChatBot = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [messages, setMessages] = useState([
         {
-            text: "مرحباً بك في وصلة خير، أنا وصلة مساعدك الذكي. أقدر أساعدك في التبرعات، الحالات، والجمعيات. كيف أقدر أخدمك اليوم؟",
+            text: "مرحباً بك في وصلة خير، أنا وصلة مساعدك الذكي. أقدر أساعدك في اختيار الحالة المناسبة للتبرع. كيف أقدر أخدمك اليوم؟",
             isBot: true,
         },
     ]);
@@ -22,9 +20,8 @@ const ChatBot = () => {
 
     const messagesEndRef = useRef(null);
 
+    // ✅ بنجيب الحالات فقط
     const { data: cases = [] } = useGetCases();
-    const { data: categories = [] } = useGetCategories();
-    const { data: charities = [] } = useGetCharities();
 
     const { mutate, isPending } = useChatBot();
 
@@ -41,21 +38,24 @@ const ChatBot = () => {
         },
         {
             id: 3,
-            text: "🏥 هل الجمعيات موثوقة؟",
-            value: "هل الجمعيات الموجودة على المنصة موثوقة؟",
+            text: "🏥 حالات طبية",
+            value: "عايز أشوف الحالات الطبية المتاحة",
         },
         {
             id: 4,
-            text: "📚 محتوى عن الزكاة والصدقة",
-            value: "عايز محتوى أو معلومات عن الزكاة والصدقة",
+            text: "🍞 حالات غذاء",
+            value: "عايز أشوف حالات تتعلق بالغذاء والاحتياجات الأساسية",
         },
     ];
 
+    // ✅ Auto scroll
     useEffect(() => {
         messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
     }, [messages, isPending]);
 
+    // ✅ طلب الموقع مرة واحدة لما الشات يتفتح
     useEffect(() => {
+        if (!isOpen || userLocation) return;
         if (!navigator.geolocation) return;
 
         navigator.geolocation.getCurrentPosition(
@@ -65,22 +65,20 @@ const ChatBot = () => {
                     longitude: position.coords.longitude,
                 });
             },
-            () => {
-                setUserLocation(null);
-            }
+            () => setUserLocation(null)
         );
-    }, []);
+    }, [isOpen]);
 
+    // ✅ normalize الحالات فقط
     const normalizedCases = useMemo(() => {
         return (cases || []).map((item) => ({
             id: item.id,
             title: item.title || item.caseTitle || "بدون عنوان",
-            description: item.description || "",
+            description: (item.description || "").slice(0, 80),
             charityName: item.charityName || "",
             categoryName: item.categoryName || "",
             targetAmount: item.targetAmount ?? item.goalAmount ?? 0,
             collectedAmount: item.collectedAmount ?? item.currentAmount ?? 0,
-            coverImageUrl: item.coverImageUrl ?? item.imageUrl ?? "",
             city: item.city || item.locationName || "",
             latitude: item.latitude ?? null,
             longitude: item.longitude ?? null,
@@ -88,45 +86,19 @@ const ChatBot = () => {
         }));
     }, [cases]);
 
-    const normalizedCategories = useMemo(() => {
-        return (categories || []).map((item) => ({
-            id: item.id,
-            name: item.name || item.title || "",
-            description: item.description || "",
-        }));
-    }, [categories]);
-
-    const normalizedCharities = useMemo(() => {
-        return (charities || []).map((item) => ({
-            id: item.id,
-            name: item.name || "",
-            description: item.description || "",
-            address: item.address || "",
-            city: item.city || "",
-            status: item.status || item.isActive || "",
-        }));
-    }, [charities]);
-
     const handleSendMessage = (messageText) => {
         if (!messageText.trim() || isPending) return;
 
-        const userMsg = { text: messageText, isBot: false };
-        setMessages((prev) => [...prev, userMsg]);
+        const currentHistory = messages; // ✅ نحفظ الـ history قبل إضافة الرسالة الجديدة
+        setMessages((prev) => [...prev, { text: messageText, isBot: false }]);
 
         mutate(
             {
                 message: messageText,
-                history: messages,
+                history: currentHistory,
                 contextData: {
-                    cases: normalizedCases,
-                    categorie: normalizedCategories,
-                    charities: normalizedCharities,
-                    awarenessVideos,
-                    awarenessArticles,
-                    awarenessImpactStats,
-                    awarenessQuotes,
-                    awarenessFaqs,
-                    userLocation,
+                    cases: normalizedCases,  // ✅ الحالات فقط
+                    userLocation,            // ✅ والموقع فقط
                 },
             },
             {
@@ -161,7 +133,6 @@ const ChatBot = () => {
     const handleSend = () => {
         const currentInput = input.trim();
         if (!currentInput) return;
-
         setInput("");
         handleSendMessage(currentInput);
     };
@@ -180,12 +151,12 @@ const ChatBot = () => {
                         exit={{ opacity: 0, y: 20, scale: 0.8 }}
                         className="mb-2 w-80 md:w-96 bg-white dark:bg-slate-900 rounded-[2rem] shadow-2xl border border-slate-100 dark:border-slate-800 overflow-hidden"
                     >
+                        {/* Header */}
                         <div className="bg-gradient-to-l from-indigo-600 to-orange-500 p-5 text-white flex justify-between items-center">
                             <div className="flex items-center gap-3">
                                 <div className="p-2.5 bg-white/15 rounded-xl border border-white/10">
                                     <Bot size={40} />
                                 </div>
-
                                 <div>
                                     <span className="font-black text-lg block leading-none">
                                         وصلة
@@ -195,7 +166,6 @@ const ChatBot = () => {
                                     </span>
                                 </div>
                             </div>
-
                             <button
                                 onClick={() => setIsOpen(false)}
                                 className="hover:bg-white/10 p-2 rounded-full transition-colors"
@@ -204,41 +174,45 @@ const ChatBot = () => {
                             </button>
                         </div>
 
+                        {/* Messages */}
                         <div className="h-52 md:h-72 overflow-y-auto p-5 space-y-4 bg-slate-50 dark:bg-slate-950 scrollbar-none">
                             {messages.map((msg, i) => (
                                 <motion.div
                                     initial={{ opacity: 0, y: 10 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     key={i}
-                                    className={`flex gap-2.5 ${msg.isBot ? "justify-start" : "justify-end"
-                                        }`}
+                                    className={`flex gap-2.5 ${
+                                        msg.isBot ? "justify-start" : "justify-end"
+                                    }`}
                                 >
                                     {msg.isBot && (
                                         <div className="w-8 h-8 rounded-full bg-indigo-100 dark:bg-indigo-500/10 flex items-center justify-center text-indigo-600 dark:text-indigo-400 shrink-0">
                                             <Bot size={16} />
                                         </div>
                                     )}
-
                                     <div
-                                        className={`max-w-[80%] p-3.5 rounded-2xl text-sm shadow-sm ${msg.isBot
+                                        className={`max-w-[80%] p-3.5 rounded-2xl text-sm shadow-sm whitespace-pre-line ${
+                                            msg.isBot
                                                 ? "bg-white dark:bg-slate-800 text-slate-800 dark:text-white rounded-tr-none"
                                                 : "bg-gradient-to-l from-indigo-600 to-orange-500 text-white rounded-tl-none"
-                                            } ${msg.isError
-                                                ? "bg-red-50 text-red-800 border border-red-200"
+                                        } ${
+                                            msg.isError
+                                                ? "!bg-red-50 !text-red-800 border border-red-200"
                                                 : ""
-                                            }`}
+                                        }`}
                                     >
                                         {msg.text}
                                     </div>
                                 </motion.div>
                             ))}
 
+                            {/* Typing indicator */}
                             {isPending && (
                                 <div className="flex gap-2 justify-start items-center text-slate-400 text-[10px]">
                                     <div className="flex gap-1">
-                                        <span className="w-1.5 h-1.5 bg-orange-400 rounded-full animate-bounce"></span>
-                                        <span className="w-1.5 h-1.5 bg-orange-400 rounded-full animate-bounce [animation-delay:0.2s]"></span>
-                                        <span className="w-1.5 h-1.5 bg-orange-400 rounded-full animate-bounce [animation-delay:0.4s]"></span>
+                                        <span className="w-1.5 h-1.5 bg-orange-400 rounded-full animate-bounce" />
+                                        <span className="w-1.5 h-1.5 bg-orange-400 rounded-full animate-bounce [animation-delay:0.2s]" />
+                                        <span className="w-1.5 h-1.5 bg-orange-400 rounded-full animate-bounce [animation-delay:0.4s]" />
                                     </div>
                                     <span>وصلة تحلل استفسارك...</span>
                                 </div>
@@ -247,6 +221,7 @@ const ChatBot = () => {
                             <div ref={messagesEndRef} />
                         </div>
 
+                        {/* Quick Questions */}
                         <div className="px-4 py-3 grid grid-cols-2 gap-2 bg-white dark:bg-slate-900 border-t dark:border-slate-800">
                             {quickQuestions.map((q) => (
                                 <button
@@ -260,6 +235,7 @@ const ChatBot = () => {
                             ))}
                         </div>
 
+                        {/* Input */}
                         <div className="p-4 bg-white dark:bg-slate-900 flex gap-2 items-center">
                             <input
                                 type="text"
@@ -269,7 +245,6 @@ const ChatBot = () => {
                                 placeholder="اسأل وصلة أي شيء..."
                                 className="flex-1 bg-slate-100 dark:bg-slate-800 border-none rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-indigo-500 dark:text-white outline-none"
                             />
-
                             <button
                                 onClick={handleSend}
                                 disabled={isPending || !input.trim()}
@@ -287,6 +262,7 @@ const ChatBot = () => {
                 )}
             </AnimatePresence>
 
+            {/* Toggle Button */}
             <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
