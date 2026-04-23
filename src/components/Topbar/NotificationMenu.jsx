@@ -10,7 +10,7 @@ import {
 } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom"; // أضفنا useNavigate
 
-import { useGetNotificationToUser, useMarkAllNotificationsAsRead, useMarkNotificationAsRead } from "../../hocks/useNotificationsHoks";
+import { useGetNotificationToUser, useMarkAllNotificationsAsRead, useMarkNotificationAsRead, useNotificationSound } from "../../hocks/useNotificationsHoks";
 import { useUser } from "../../hocks/useAuthHocks";
 
 const NotificationMenu = ({ goTo }) => {
@@ -54,6 +54,8 @@ const NotificationMenu = ({ goTo }) => {
     const unreadCount = useMemo(() => {
         return notifications.filter((item) => !item.isRead).length;
     }, [notifications]);
+
+    useNotificationSound(notifications);
 
 
     // دالة التعامل مع الضغط على الإشعار

@@ -20,7 +20,7 @@ const CategoryPage = () => {
     const { data: userData } = useUser()
     const { user } = userData
     const charityid = user?.charityId
-    console.log(user)
+    // console.log(user)
 
     // Destructing
     const { data: categories = [], isLoading, isError, error } = useGetCategoriesByCharity(charityid);

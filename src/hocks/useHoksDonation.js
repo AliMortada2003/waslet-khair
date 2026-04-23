@@ -10,12 +10,19 @@ export const useGetAllDonations = () => {
     });
 };
 
+export const useGetAllDonationsToCharity = (charityId) => {
+    return useQuery({
+        queryKey: ["charityDonation", charityId],
+        queryFn: () => donationServices.get_AlldonationToCharity(charityId),
+        enabled: !!charityId
+    });
+};
 // 2. جلب تبرعات متبرع معين
 export const useGetDonationsByDonor = (donorId) => {
     return useQuery({
         queryKey: ["donations", "donor", donorId],
         queryFn: () => donationServices.get_Alldonation_For_Donner(donorId),
-        enabled: !!donorId, 
+        enabled: !!donorId,
     });
 };
 
@@ -32,9 +39,13 @@ export const useGetDonationsByCase = (caseId) => {
 export const useAddDonation = (caseId) => {
     const queryClient = useQueryClient();
     return useMutation({
-        mutationFn: donationServices.add_Donation,
+        mutationFn: (payload) =>
+            payload?.donorId
+                ? donationServices.add_Donation(payload)
+                : donationServices.add_Donation_Guest(payload),
         onSuccess: () => {
             queryClient.invalidateQueries({ queryKey: ["case", caseId] });
+            queryClient.invalidateQueries({ queryKey: ["notifications"] });
             showAlert.success("تم التبرع", "شكراً لك، تم تسجيل تبرعك بنجاح");
         },
         onError: (error) => {

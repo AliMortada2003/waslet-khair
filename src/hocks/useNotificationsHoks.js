@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import notificationServices from "../services/notification";
 
@@ -7,6 +8,45 @@ export const useGetNotificationToUser = () => {
         queryKey: ["notifications"],
         queryFn: notificationServices.getNotificationToUser,
     });
+};
+
+export const useNotificationSound = (notifications = []) => {
+    const isFirstRender = useRef(true);
+    const previousUnreadIdsRef = useRef([]);
+    const audioRef = useRef(null);
+
+    useEffect(() => {
+        if (!audioRef.current) {
+            audioRef.current = new Audio("/images/soundes/notificationSound.wav");
+            audioRef.current.preload = "auto";
+        }
+    }, []);
+
+    useEffect(() => {
+        if (!Array.isArray(notifications)) return;
+
+        const unreadIds = notifications
+            .filter((item) => !(item.isRead ?? item.read ?? item.isSeen ?? false))
+            .map((item) => item.id)
+            .filter(Boolean);
+
+        if (isFirstRender.current) {
+            previousUnreadIdsRef.current = unreadIds;
+            isFirstRender.current = false;
+            return;
+        }
+
+        const hasNewUnreadNotification = unreadIds.some(
+            (id) => !previousUnreadIdsRef.current.includes(id)
+        );
+
+        if (hasNewUnreadNotification && audioRef.current) {
+            audioRef.current.currentTime = 0;
+            audioRef.current.play().catch(() => { });
+        }
+
+        previousUnreadIdsRef.current = unreadIds;
+    }, [notifications]);
 };
 
 // جلب تفاصيل إشعار واحد

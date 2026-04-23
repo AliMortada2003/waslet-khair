@@ -13,7 +13,7 @@ import { Link } from "react-router-dom";
 const CharityCard = ({ charity }) => {
     const [imageError, setImageError] = useState(false);
     const [logoError, setLogoError] = useState(false);
-
+    // console.log(charity)
     return (
         <motion.div
             initial={{ opacity: 0, y: 20 }}

@@ -177,7 +177,7 @@ const DonatePage = () => {
                 title="إتمام عملية التبرع"
                 subtitle="اختر المبلغ وطريقة الدفع ثم أكمل عملية التبرع"
                 icon={HandHeart}
-            breadcrumb="التبرع / تجهيز العملية"
+                breadcrumb="التبرع / تجهيز العملية"
             />
 
             <div className="grid grid-cols-1 xl:grid-cols-3 gap-6 mt-8">
@@ -476,7 +476,7 @@ const DonatePage = () => {
                     </div>
                 </div>
             </div>
-
+            
             <VisaPaymentModal
                 isOpen={activePaymentModal === "visa"}
                 onClose={() => setActivePaymentModal(null)}
@@ -498,7 +498,7 @@ const DonatePage = () => {
                 onSubmitDonation={handleAddDonation}
                 isSubmitting={isAddingDonation}
             />
-
+            
             <FawryPaymentModal
                 isOpen={activePaymentModal === "fawry"}
                 onClose={() => setActivePaymentModal(null)}
