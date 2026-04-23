@@ -3,7 +3,6 @@ import ScrollToTop from "../components/scroll/ScrollToTop";
 import Header from "../components/layout/Navbar";
 import Footer from "../sections/FooterSection";
 import AppRouter from './AppRouter';
-import ChatBot from "../sections/ChatBot";
 
 export const AppContent = () => {
     const location = useLocation(); // ✅ الحصول على المسار الحالي
@@ -21,7 +20,6 @@ export const AppContent = () => {
 
             <main>
                 <AppRouter />
-                <ChatBot />
             </main>
 
             {/* ✅ عرض الفوتر فقط إذا لم نكن في لوحة التحكم */}

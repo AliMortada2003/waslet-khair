@@ -10,7 +10,6 @@ dist
 build
 dist-ssr
 
-# Env
 
 # Cache
 .cache
