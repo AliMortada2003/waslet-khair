@@ -1,52 +1,79 @@
-import React from 'react';
-import { X } from 'lucide-react';
+import React from "react";
+import { X } from "lucide-react";
 
 const ModalHeader = ({
     title,
     subtitle,
     icon: Icon,
     onClose,
-    variant = 'indigo' // 'indigo', 'orange', 'rose'
+    variant = "indigo",
 }) => {
-    // تحديد الألوان بناءً على الـ variant
     const themes = {
-        indigo: "bg-indigo-500/10 text-indigo-600 dark:bg-indigo-500/20 dark:text-indigo-400",
-        orange: "bg-orange-500/10 text-orange-600 dark:bg-orange-500/20 dark:text-orange-400",
-        rose: "bg-rose-500/10 text-rose-600 dark:bg-rose-500/20 dark:text-rose-400"
+        indigo: {
+            icon: "bg-indigo-500/10 text-indigo-600 dark:bg-indigo-500/15 dark:text-indigo-400",
+            glow: "bg-indigo-500",
+            line: "from-indigo-500",
+        },
+        orange: {
+            icon: "bg-orange-500/10 text-orange-600 dark:bg-orange-500/15 dark:text-orange-400",
+            glow: "bg-orange-500",
+            line: "from-orange-500",
+        },
+        rose: {
+            icon: "bg-rose-500/10 text-rose-600 dark:bg-rose-500/15 dark:text-rose-400",
+            glow: "bg-rose-500",
+            line: "from-rose-500",
+        },
+        emerald: {
+            icon: "bg-emerald-500/10 text-emerald-600 dark:bg-emerald-500/15 dark:text-emerald-400",
+            glow: "bg-emerald-500",
+            line: "from-emerald-500",
+        },
     };
 
+    const theme = themes[variant] || themes.indigo;
+
     return (
-        <div className="relative p-6 border-b border-slate-100 dark:border-white/5 flex items-center justify-between bg-amber-100 dark:bg-white/[0.01]">
-            {/* الخلفية الملونة الخفيفة (اختياري لمسة جمالية) */}
-            <div className={`absolute top-0 right-0 w-32 h-32 opacity-10 blur-3xl pointer-events-none -mr-16 -mt-16 rounded-full ${variant === 'indigo' ? 'bg-indigo-500' : 'bg-orange-500'}`} />
+        <div className="relative overflow-hidden border-b border-slate-100 dark:border-white/10 bg-white/90 dark:bg-slate-900/95">
+            <div
+                className={`absolute -top-16 -right-16 w-44 h-44 rounded-full ${theme.glow} opacity-10 blur-3xl pointer-events-none`}
+            />
 
-            <div className="flex items-center gap-4 relative z-10">
-                {/* الأيقونة بحاوية أنيقة */}
-                {Icon && (
-                    <div className={`p-3.5 rounded-[1.25rem] shadow-sm transition-transform duration-500 group-hover:rotate-12 ${themes[variant]}`}>
-                        <Icon size={26} strokeWidth={2.5} />
-                    </div>
-                )}
-
-                <div className="flex flex-col">
-                    <h2 className="text-xl font-black text-slate-800 dark:text-white tracking-tight">
-                        {title}
-                    </h2>
-                    {subtitle && (
-                        <p className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] mt-0.5">
-                            {subtitle}
-                        </p>
+            <div className="relative z-10 p-6 flex items-center justify-between gap-4">
+                <div className="flex items-center gap-4 min-w-0">
+                    {Icon && (
+                        <div
+                            className={`w-14 h-14 rounded-2xl flex items-center justify-center shadow-sm shrink-0 ${theme.icon}`}
+                        >
+                            <Icon size={26} strokeWidth={2.5} />
+                        </div>
                     )}
+
+                    <div className="min-w-0">
+                        <h2 className="text-xl md:text-2xl font-black text-slate-900 dark:text-white tracking-tight truncate">
+                            {title}
+                        </h2>
+
+                        {subtitle && (
+                            <p className="mt-1 text-xs md:text-sm font-bold text-slate-400 dark:text-slate-500 truncate">
+                                {subtitle}
+                            </p>
+                        )}
+                    </div>
                 </div>
+
+                <button
+                    type="button"
+                    onClick={onClose}
+                    className="w-11 h-11 rounded-2xl flex items-center justify-center text-slate-400 bg-slate-50 hover:bg-rose-50 hover:text-rose-500 dark:bg-white/5 dark:hover:bg-rose-500/10 transition-all active:scale-95 shrink-0"
+                >
+                    <X size={22} />
+                </button>
             </div>
 
-            {/* زر الإغلاق بتصميم تفاعلي */}
-            <button
-                onClick={onClose}
-                className="group p-2.5 rounded-2xl text-slate-400 hover:bg-rose-50 hover:text-rose-500 dark:hover:bg-rose-500/10 transition-all duration-300"
-            >
-                <X size={22} className="group-hover:rotate-90 transition-transform duration-300" />
-            </button>
+            <div
+                className={`h-1 w-full bg-gradient-to-l ${theme.line} via-transparent to-transparent opacity-70`}
+            />
         </div>
     );
 };

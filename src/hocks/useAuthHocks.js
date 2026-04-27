@@ -113,7 +113,7 @@ export const useRegisterDonor = () => {
     return useMutation({
         mutationFn: authService.registerDonor,
         onSuccess: () => {
-            showAlert.success("تم إنشاء الحساب", "تم تسجيل المتبرع بنجاح");
+            showAlert.success("تم إنشاء الحساب", "يرجى تأكيد الحساب الخاص بكم عبر البريد المرسل");
             navigate("/login");
         },
         onError: (err) => {

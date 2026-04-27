@@ -39,46 +39,46 @@ export const awarenessVideos = [
         duration: "3:45",
         category: "فضل العطاء",
     },
-    {
-        id: 5,
-        title: "كيف تجعل الصدقة جزء من روتينك",
-        description:
-            "خطوات عملية ونصائح ذكية لتحويل العطاء إلى عادة يومية لا تنقطع، من خلال أفكار بسيطة ومبتكرة تناسب الجميع.",
-        thumbnail: "images/thumbnail/5.jpg",
-        videoUrl: "https://www.youtube.com/embed/eH6_1PNk7rY?si=obQcqmFjif9kwHAd",
-        duration: "340",
-        category: "تطوير الذات",
-    },
-    {
-        id: 6,
-        title: "الكلمة الطيبة صدقة",
-        description:
-            "رسالة تذكيرية بجمال الأخلاق الإسلامية؛ اكتشف كيف يمكن لابتسامتك وحديثك مع الناس أن يتحول إلى جبال من الحسنات.",
-        thumbnail: "images/thumbnail/7.jpg",
-        videoUrl: "https://www.youtube.com/embed/ZXviYQrwqUA?si=KcTUn7MKH-NbkQxH",
-        duration: "8:30",
-        category: "الوعي الديني",
-    },
-    {
-        id: 7,
-        title: "الصدقة احب الاعمال الي الله",
-        description:
-            "فيديو ملهم يتحدث عن إدخال السرور على قلب المسلم وكيف أن سد حاجة إنسان قد يكون أقرب طريق لنيل محبة الله ورضوانه.",
-        thumbnail: "images/thumbnail/6.jpg",
-        videoUrl: "https://www.youtube.com/embed/laUZcepXGec?si=t9iaQy8SsceuyKn0",
-        duration: "5:30",
-        category: "أخلاقيات",
-    },
-    {
-        id: 8,
-        title: "موعظة",
-        description:
-            "استكشف أسراراً نفسية وروحية عميقة حول الصدقة كعلاج للنفس، وكيف ينجح الفقير في هذا الاختبار الإلهي قبل الغني.",
-        thumbnail: "images/thumbnail/8.jpg",
-        videoUrl: "https://www.youtube.com/embed/Q_6em5DH3Ks?si=J4nTTX4sGcjHBFrF",
-        duration: "2:00",
-        category: "مواظ دينية",
-    },
+    // {
+    //     id: 5,
+    //     title: "كيف تجعل الصدقة جزء من روتينك",
+    //     description:
+    //         "خطوات عملية ونصائح ذكية لتحويل العطاء إلى عادة يومية لا تنقطع، من خلال أفكار بسيطة ومبتكرة تناسب الجميع.",
+    //     thumbnail: "images/thumbnail/5.jpg",
+    //     videoUrl: "https://www.youtube.com/embed/eH6_1PNk7rY?si=obQcqmFjif9kwHAd",
+    //     duration: "340",
+    //     category: "تطوير الذات",
+    // },
+    // {
+    //     id: 6,
+    //     title: "الكلمة الطيبة صدقة",
+    //     description:
+    //         "رسالة تذكيرية بجمال الأخلاق الإسلامية؛ اكتشف كيف يمكن لابتسامتك وحديثك مع الناس أن يتحول إلى جبال من الحسنات.",
+    //     thumbnail: "images/thumbnail/7.jpg",
+    //     videoUrl: "https://www.youtube.com/embed/ZXviYQrwqUA?si=KcTUn7MKH-NbkQxH",
+    //     duration: "8:30",
+    //     category: "الوعي الديني",
+    // },
+    // {
+    //     id: 7,
+    //     title: "الصدقة احب الاعمال الي الله",
+    //     description:
+    //         "فيديو ملهم يتحدث عن إدخال السرور على قلب المسلم وكيف أن سد حاجة إنسان قد يكون أقرب طريق لنيل محبة الله ورضوانه.",
+    //     thumbnail: "images/thumbnail/6.jpg",
+    //     videoUrl: "https://www.youtube.com/embed/laUZcepXGec?si=t9iaQy8SsceuyKn0",
+    //     duration: "5:30",
+    //     category: "أخلاقيات",
+    // },
+    // {
+    //     id: 8,
+    //     title: "موعظة",
+    //     description:
+    //         "استكشف أسراراً نفسية وروحية عميقة حول الصدقة كعلاج للنفس، وكيف ينجح الفقير في هذا الاختبار الإلهي قبل الغني.",
+    //     thumbnail: "images/thumbnail/8.jpg",
+    //     videoUrl: "https://www.youtube.com/embed/Q_6em5DH3Ks?si=J4nTTX4sGcjHBFrF",
+    //     duration: "2:00",
+    //     category: "مواظ دينية",
+    // },
 ];
 
 export const awarenessArticles = [

@@ -3,7 +3,7 @@ import { Heart, PlayCircle, BookOpen } from "lucide-react";
 
 const AwarenessHero = () => {
     return (
-        <div className="bg-white dark:bg-slate-900 rounded-[2rem] border border-slate-100 dark:border-slate-800 p-8 md:p-10 shadow-sm">
+        <div className="bg-white max-w-7xl mx-auto py-5 dark:bg-slate-900 rounded-[2rem] border border-slate-100 dark:border-slate-800 p-8 md:p-10 shadow-sm">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
                 <div>
                     <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange-50 dark:bg-orange-900/20 text-orange-600 dark:text-orange-300 text-sm font-bold mb-5">
@@ -22,17 +22,6 @@ const AwarenessHero = () => {
                         وأهمية الزكاة والصدقة، وكيف يمكن لمساهمتك أن تصنع فرقًا
                         حقيقيًا في حياة الآخرين.
                     </p>
-
-                    <div className="flex flex-wrap items-center gap-3">
-                        <button className="px-6 py-3 rounded-2xl bg-indigo-600 hover:bg-indigo-700 text-white font-black shadow-lg shadow-indigo-500/20 transition-all">
-                            تصفح الحالات
-                        </button>
-
-                        <button className="px-6 py-3 rounded-2xl bg-slate-100 dark:bg-white/5 hover:bg-slate-200 dark:hover:bg-white/10 text-slate-800 dark:text-white font-black transition-all flex items-center gap-2">
-                            <PlayCircle size={18} />
-                            شاهد الفيديوهات
-                        </button>
-                    </div>
                 </div>
 
                 <div className="relative">

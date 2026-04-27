@@ -4,7 +4,7 @@ import { Quote } from "lucide-react";
 const AwarenessQuotesSection = ({ quotes = [] }) => {
     return (
         <div className="space-y-6">
-            <div>
+            <div className="text-center">
                 <h2 className="text-2xl font-black text-slate-900 dark:text-white">
                     رسائل ملهمة
                 </h2>

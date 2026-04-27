@@ -26,21 +26,19 @@ const CaseCard = ({
 
     const progress = useMemo(() => {
         const collected = Number(item?.collectedAmount || item?.currentAmount || item?.collected || 0);
-        const target = Number(item?.targetAmount || item?.goalAmount ||item?.target|| 0);
+        const target = Number(item?.targetAmount || item?.goalAmount || item?.target || 0);
 
         if (!target || target <= 0) return 0;
         return Math.min((collected / target) * 100, 100);
     }, [item?.collectedAmount, item?.currentAmount, item?.targetAmount, item?.goalAmount]);
 
-    const isUrgent =
-        item?.priority === "High" || item?.priority === "Critical";
+    const isUrgent = item?.priority === "High" || item?.priority === "Critical";
 
     const formatCurrency = (value) => {
         return new Intl.NumberFormat("ar-EG").format(Number(value || 0));
     };
 
-    const isFavoriteLoading =
-        addFavoriteMutation.isPending || deleteFavoriteMutation.isPending;
+    const isFavoriteLoading = addFavoriteMutation.isPending || deleteFavoriteMutation.isPending;
 
 
     const handleFavoriteClick = () => {
@@ -66,13 +64,28 @@ const CaseCard = ({
         }
     };
     const resolvedCaseId = item?.caseId || item?.id;
+
+
+    const status = String(item?.status || item?.caseStatus || "").toLowerCase();
+    const isCompleted = progress >= 100 || status === "completed" || status === "closed";
+    const isPaused = status === "paused" || status === "inactive";
+    const canDonate = !hideDonateButton && !isCompleted && !isPaused;
+
+    const cardBgClass = isCompleted
+        ? "bg-emerald-50 dark:bg-emerald-500/10 border-emerald-200 dark:border-emerald-500/20"
+        : "bg-white dark:bg-slate-900 border-slate-200/70 dark:border-white/10";
     return (
         <motion.article
             initial={{ opacity: 0, y: 18 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.4, delay: index * 0.03 }}
-            className="group bg-white dark:bg-slate-900 rounded-[1.75rem] overflow-hidden border border-slate-200/70 dark:border-white/10 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+            className={`
+                group rounded-[1.75rem] overflow-hidden
+                border shadow-sm hover:shadow-lg hover:-translate-y-1
+                transition-all duration-300
+                ${cardBgClass}
+            `}
             dir="rtl"
         >
             <div className="relative h-44 overflow-hidden">
@@ -190,13 +203,30 @@ const CaseCard = ({
                     )}
 
                     {!hideDonateButton && (
-                        <Button
-                            onClick={() => navigate(`/case/${resolvedCaseId}/donate`)}
-                            className="flex-[1.3] h-10 bg-indigo-600 text-white font-black rounded-xl flex items-center justify-center gap-2 hover:bg-emerald-600 transition-all duration-300 text-xs shadow-md shadow-indigo-600/20"
-                        >
-                            تبرع الآن
-                            <Heart size={14} />
-                        </Button>
+                        isCompleted ? (
+                            <button
+                                disabled
+                                className="flex-[1.3] h-10 bg-emerald-500 dark:bg-emerald-500/10 text-white dark:text-emerald-300 border border-emerald-200 dark:border-emerald-500/20 font-black rounded-xl flex items-center justify-center gap-2 text-xs cursor-not-allowed"
+                            >
+                                اكتملت الحالة
+                                <Heart size={14} className="fill-current" />
+                            </button>
+                        ) : isPaused ? (
+                            <button
+                                disabled
+                                className="flex-[1.3] h-10 bg-slate-100 dark:bg-white/5 text-slate-500 dark:text-slate-400 border border-slate-200 dark:border-white/10 font-black rounded-xl flex items-center justify-center gap-2 text-xs cursor-not-allowed"
+                            >
+                                التبرع متوقف
+                            </button>
+                        ) : (
+                            <Button
+                                onClick={() => navigate(`/case/${resolvedCaseId}/donate`)}
+                                className="flex-[1.3] h-10 bg-indigo-600 text-white font-black rounded-xl flex items-center justify-center gap-2 hover:bg-emerald-600 transition-all duration-300 text-xs shadow-md shadow-indigo-600/20"
+                            >
+                                تبرع الآن
+                                <Heart size={14} />
+                            </Button>
+                        )
                     )}
                 </div>
             </div>

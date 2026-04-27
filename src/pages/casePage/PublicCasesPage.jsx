@@ -137,7 +137,7 @@ const PublicCasesPage = () => {
 
                 <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
                     <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-600 text-white mb-6 shadow-xl shadow-indigo-500/20">
-                        <Sparkles size={18} />
+                        <Heart size={18} />
                         <span className="text-sm font-bold tracking-wide">
                             معًا نصنع أثرًا حقيقيًا
                         </span>

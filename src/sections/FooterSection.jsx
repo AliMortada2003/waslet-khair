@@ -10,13 +10,11 @@ import WaslaLogo from "../components/WaslaLogo";
 
 const Footer = () => {
     const currentYear = new Date().getFullYear();
-    
     const navLinks = [
         { name: "الرئيسية", to: "/", icon: <Home size={16} /> },
         { name: "الحالات الإنسانية", to: "/cases", icon: <HeartHandshake size={16} /> },
         { name: "الجمعيات الشريكة", to: "/charities", icon: <Building2 size={16} /> },
         { name: "مجالات الخير", to: "/categories", icon: <Shapes size={16} /> },
-        { name: "انضم كمؤسسة", to: "/join", icon: <UserPlus size={16} /> },
         { name: "عن وصلة خير", to: "/about", icon: <Info size={16} /> },
         { name: "مدونة الأثر", to: "/advice", icon: <Lightbulb size={16} /> },
     ];
@@ -131,7 +129,7 @@ const Footer = () => {
                             © {currentYear} جميع الحقوق محفوظة لمنصة <span className="text-slate-300 font-bold">وصلة خير</span>
                         </p>
                         <div className="flex gap-2 text-slate-500 items-center">
-                            <span className="text-[11px]">بواسطة</span>
+                            <span className="text-[11px]">بـواســطــة</span>
                             <span className="text-orange-500 font-black tracking-widest uppercase">ALI MORTADA</span>
                         </div>
                     </div>

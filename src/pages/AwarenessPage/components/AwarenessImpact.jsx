@@ -3,8 +3,8 @@ import { HeartHandshake } from "lucide-react";
 
 const AwarenessImpactSection = ({ stats = [] }) => {
     return (
-        <div className="bg-white dark:bg-slate-900 rounded-[2rem] p-8 border border-slate-100 dark:border-slate-800 shadow-sm">
-            <div className="flex items-center gap-3 mb-8">
+        <div className="bg-white max-w-7xl py-5 mx-auto dark:bg-slate-900 rounded-[2rem] p-8 border border-slate-100 dark:border-slate-800 shadow-sm">
+            <div className="flex items-center  gap-3 mb-8">
                 <div className="w-12 h-12 rounded-2xl bg-indigo-50 dark:bg-indigo-500/10 flex items-center justify-center">
                     <HeartHandshake className="text-indigo-600 dark:text-indigo-300" />
                 </div>
