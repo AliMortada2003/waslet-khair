@@ -3,7 +3,7 @@ import { PlayCircle } from "lucide-react";
 import AwarenessVideoCard from './AwarenessVideoCard';
 const AwarenessVideoSection = ({ videos = [], onPlayVideo }) => {
     return (
-        <div className="space-y-6 max-w-7xl  py-5 mx-auto">
+        <div className="space-y-6">
                 <div className="text-center">
                     <h2 className="text-2xl font-black text-slate-900 dark:text-white">
                         فيديوهات توعوية

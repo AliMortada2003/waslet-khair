@@ -25,10 +25,12 @@ const HomePage = () => {
                 <CategorySection />
                 <CharitySection />
                 <CasesSection />
-                <AwarenessHero />
-                <AwarenessVideoSection videos={awarenessVideos} onPlayVideo={setSelectedVideo} />
-                <AwarenessArticlesSection articles={awarenessArticles} />
-                <AwarenessImpactSection stats={awarenessImpactStats} />
+                <div className="max-w-7xl mx-auto space-y-10 py-10">
+                    <AwarenessHero />
+                    <AwarenessVideoSection videos={awarenessVideos} onPlayVideo={setSelectedVideo} />
+                    <AwarenessArticlesSection articles={awarenessArticles} />
+                    <AwarenessImpactSection stats={awarenessImpactStats} />
+                </div>
             </main>
         </div>
     );

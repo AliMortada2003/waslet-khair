@@ -3,7 +3,7 @@ import { Heart, PlayCircle, BookOpen } from "lucide-react";
 
 const AwarenessHero = () => {
     return (
-        <div className="bg-white max-w-7xl mx-auto py-5 dark:bg-slate-900 rounded-[2rem] border border-slate-100 dark:border-slate-800 p-8 md:p-10 shadow-sm">
+        <div className="bg-white dark:bg-slate-900 rounded-[2rem] border border-slate-100 dark:border-slate-800 p-8 md:p-10 shadow-sm">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
                 <div>
                     <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange-50 dark:bg-orange-900/20 text-orange-600 dark:text-orange-300 text-sm font-bold mb-5">
