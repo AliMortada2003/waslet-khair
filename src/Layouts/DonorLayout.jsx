@@ -7,6 +7,7 @@ import {
     CircleUser,
     HomeIcon,
     LayoutDashboard,
+    BellRing,
 } from "lucide-react";
 import { useTheme } from "../context/ThemeContext";
 import Sidebar from "../components/sidepar/Sidebar";
@@ -18,6 +19,7 @@ const donorItems = [
     { to: "/donor/explore", icon: Search, label: "استكشاف الحالات" },
     { to: "/donor/my-donations", icon: History, label: "سجل تبرعاتي" },
     { to: "/donor/favorites", icon: Heart, label: "الحالات المفضلة" },
+    { to: "/donor/notifications", icon: BellRing, label: "الإشعارات" },
     { to: "/", icon: HomeIcon, label: "العودة للرئيسية" },
 ];
 
